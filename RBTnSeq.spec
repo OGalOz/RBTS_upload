@@ -21,7 +21,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    @id ws KBaseRBTnSeq.InputGenesTable
+    @id ws KBaseRBTnSeq.RBTS_InputGenesTable
     */
     typedef string genes_table_ref;
     
@@ -49,7 +49,7 @@ module KBaseRBTnSeq {
    
 
     /*
-    file_type - KBaseRBTnSeq.InputGenesTable, the name of the file type.
+    file_type - KBaseRBTnSeq.RBTS_InputGenesTable, the name of the file type.
     input_genes_table - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
     shock_url - the url of the shock server
@@ -96,7 +96,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type - KBaseRBTnSeq.PoolFile, the name of the file type.
+    file_type - KBaseRBTnSeq.RBTS_PoolFile, the name of the file type.
     poolfile - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
     shock_url - the url of the shock server
@@ -162,7 +162,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type KBaseRBTnSeq.PoolCount
+    file_type KBaseRBTnSeq.RBTS_PoolCount
     handle_id will be poolcount file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     column_header_list will be
@@ -220,7 +220,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type KBaseRBTnSeq.ExperimentsTable
+    file_type KBaseRBTnSeq.RBTS_ExperimentsTable
     exps_file will be experiments file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     column_header_list will have required parts:
