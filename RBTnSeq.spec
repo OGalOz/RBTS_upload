@@ -94,6 +94,30 @@ module KBaseRBTnSeq {
     } RBTS_InputGenesTable;
 
 
+    /*
+    file_type - KBaseRBTnSeq.RBTS_Model, the name of the file type.
+    utc_created - the Coordinated Universal Time of creation
+    standard_model_name - e.g. 'Sc_Tn5', or 'pKMW3_universal' 
+    model_string - The model string: e.g.  nnnnnnGATGTCCACGAGGTCTCTNNNNNNNNNNNNNNNNNNNNCGTACGCTGCAGGTCGACGGCCGGCCAGACCGGGGACTTATCAGCCAACCTGT
+    past_end_string - The Past end string: e.g. TATGTGTTGGGTAACGCCAGGGTTTTCCCAGTCACGACGTTGTAAAACGACGGCCAGTGAATTAATTCTTGAAGA
+   
+    @metadata ws utc_created as utc_created
+    @metadata ws standard_model_name as standard_model_name
+    @metadata ws model_string as model_string
+    @metadata ws past_end_string as past_end_string
+    */
+
+    typedef structure {
+        string file_type;
+        string utc_created;
+        string standard_model_name;
+        string model_string;
+        string past_end_string;
+    
+    } RBTS_Model;
+
+
+
 
     /*
     file_type - KBaseRBTnSeq.RBTS_PoolFile, the name of the file type.
