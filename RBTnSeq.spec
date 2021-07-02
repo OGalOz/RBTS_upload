@@ -144,7 +144,7 @@ module KBaseRBTnSeq {
         col_list column_header_list;
         string column_headers_str;
         string num_lines;
-        genome_ref related_genes_table_ref;
+        genes_table_ref related_genes_table_ref;
         string related_organism_scientific_name;
         string model_used;
         fastqs fastqs_used; 
