@@ -50,7 +50,7 @@ module KBaseRBTnSeq {
 
     /*
     file_type - KBaseRBTnSeq.InputGenesTable, the name of the file type.
-    poolfile - handle that allows to download file, and get info re. shock node, shock url,
+    input_genes_table - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
     shock_url - the url of the shock server
     shock_node_id - the id of the shock node in the server
@@ -59,14 +59,14 @@ module KBaseRBTnSeq {
     utc_created - the Coordinated Universal Time of creation
     column_header_list - a list of the headers of the columns, the length of this 
         list should be the num of columns in the file. Currently: 
-        <"barcode", "rcbarcode", "nTot", "n", "scaffold", "strand", 
-        "pos", "n2", "scaffold2", "strand2", "pos2", "nPastEnd">
-        making a total of 12 columns.
+        <"locusId", "sysName", "type", "scaffoldId", "begin", "end", "strand", "name", "desc", "GC", "nTA">
+        making a total of 11 columns.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
     related_genome_ref -  the genome which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
-    
+   
+    @optional related_genome_ref 
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws shock_url as shock_url
@@ -91,7 +91,7 @@ module KBaseRBTnSeq {
         string num_lines;
         genome_ref related_genome_ref;
         string related_organism_scientific_name;
-    } InputGenesTable;
+    } RBTS_InputGenesTable;
 
 
 
@@ -151,7 +151,7 @@ module KBaseRBTnSeq {
         string fastqs_used_str; 
         string description;
     
-    } PoolFile;
+    } RBTS_PoolFile;
 
 
   
@@ -191,6 +191,7 @@ module KBaseRBTnSeq {
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
+    @metadata ws fastqs_used_str as fastqs_used_str
     @metadata ws description
     @metadata ws num_lines
     */
@@ -211,10 +212,11 @@ module KBaseRBTnSeq {
         genes_table_ref related_genes_table_ref;
         string related_organism_scientific_name;
         fastqs fastqs_used; 
+        string fastqs_used_str; 
         string poolfile_ref;
         string description;
     
-    } PoolCount;
+    } RBTS_PoolCount;
 
 
     /*
@@ -271,7 +273,7 @@ module KBaseRBTnSeq {
         string poolfile_ref;
         string description;
 
-    } ExperimentsTable;
+    } RBTS_ExperimentsTable;
 
 
 
