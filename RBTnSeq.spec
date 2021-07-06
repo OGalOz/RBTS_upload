@@ -112,11 +112,13 @@ module KBaseRBTnSeq {
     standard_model_name - e.g. 'Sc_Tn5', or 'pKMW3_universal' 
     model_string - The model string: e.g.  nnnnnnGATGTCCACGAGGTCTCTNNNNNNNNNNNNNNNNNNNNCGTACGCTGCAGGTCGACGGCCGGCCAGACCGGGGACTTATCAGCCAACCTGT
     past_end_string - The Past end string: e.g. TATGTGTTGGGTAACGCCAGGGTTTTCCCAGTCACGACGTTGTAAAACGACGGCCAGTGAATTAATTCTTGAAGA
+    description - A description given by the uploader as to what the pool file means.
    
     @metadata ws utc_created as utc_created
     @metadata ws standard_model_name as standard_model_name
     @metadata ws model_string as model_string
     @metadata ws past_end_string as past_end_string
+    @metadata ws description
     */
 
     typedef structure {
@@ -125,7 +127,8 @@ module KBaseRBTnSeq {
         string standard_model_name;
         string model_string;
         string past_end_string;
-    
+        string description;
+
     } RBTS_Model;
 
 
