@@ -29,7 +29,7 @@ module KBaseRBTnSeq {
     /*
     @id ws KBaseRBTnSeq.RBTS_TransposonModel
     */
-    typedef string transposon_model_ref;
+    typedef string model_ref;
 
 
     /*
@@ -150,7 +150,7 @@ module KBaseRBTnSeq {
         making a total of 12 columns.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
-    transposon_model_ref - The model reference (ID) of the model used to create this poolfile
+    model_ref - The model reference (ID) of the model used to create this poolfile
     related_genes_table_ref - the genes table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     fastqs_used - the fastqs which were used to create the poolfile
@@ -164,7 +164,7 @@ module KBaseRBTnSeq {
     @metadata ws shock_url as shock_url
     @metadata ws shock_node_id as shock_node_id
     @metadata ws num_lines as num_lines
-    @metadata ws transposon_model_ref as transposon_model_ref
+    @metadata ws model_ref as model_ref
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
@@ -185,7 +185,7 @@ module KBaseRBTnSeq {
         string num_lines;
         genes_table_ref related_genes_table_ref;
         string related_organism_scientific_name;
-        transposon_model_ref transposon_model_ref;
+        model_ref model_ref;
         fastqs fastqs_used; 
         string fastqs_used_str; 
         string description;
