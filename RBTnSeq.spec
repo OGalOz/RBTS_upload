@@ -27,13 +27,13 @@ module KBaseRBTnSeq {
 
 
     /*
-    @id ws KBaseRBTnSeq.RBTS_Model
+    @id ws KBaseRBTnSeq.RBTS_TransposonModel
     */
-    typedef string model_ref;
+    typedef string transposon_model_ref;
 
 
     /*
-    @id ws KBaseRBTnSeq.RBTS_PoolFile
+    @id ws KBaseRBTnSeq.RBTS_MutantPoolFile
     */
     typedef string poolfile_ref;
     
@@ -107,9 +107,9 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type - KBaseRBTnSeq.RBTS_Model, the name of the file type.
+    file_type - KBaseRBTnSeq.RBTS_TransposonModel, the name of the file type.
     utc_created - the Coordinated Universal Time of creation
-    standard_model_name - e.g. 'Sc_Tn5', or 'pKMW3_universal' 
+    standard_model_name - e.g. 'Sc_Tn5', or 'pKMW3_universal', or the custom model name if custom
     model_string - The model string: e.g.  nnnnnnGATGTCCACGAGGTCTCTNNNNNNNNNNNNNNNNNNNNCGTACGCTGCAGGTCGACGGCCGGCCAGACCGGGGACTTATCAGCCAACCTGT
     past_end_string - The Past end string: e.g. TATGTGTTGGGTAACGCCAGGGTTTTCCCAGTCACGACGTTGTAAAACGACGGCCAGTGAATTAATTCTTGAAGA
     description - A description given by the uploader as to what the pool file means.
@@ -129,13 +129,13 @@ module KBaseRBTnSeq {
         string past_end_string;
         string description;
 
-    } RBTS_Model;
+    } RBTS_TransposonModel;
 
 
 
 
     /*
-    file_type - KBaseRBTnSeq.RBTS_PoolFile, the name of the file type.
+    file_type - KBaseRBTnSeq.RBTS_MutantPoolFile, the name of the file type.
     poolfile - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
     shock_url - the url of the shock server
@@ -150,7 +150,7 @@ module KBaseRBTnSeq {
         making a total of 12 columns.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
-    model_ref - The model reference (ID) of the model used to create this poolfile
+    transposon_model_ref - The model reference (ID) of the model used to create this poolfile
     related_genes_table_ref - the genes table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     fastqs_used - the fastqs which were used to create the poolfile
@@ -164,7 +164,7 @@ module KBaseRBTnSeq {
     @metadata ws shock_url as shock_url
     @metadata ws shock_node_id as shock_node_id
     @metadata ws num_lines as num_lines
-    @metadata ws model_ref as model_ref
+    @metadata ws transposon_model_ref as transposon_model_ref
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
@@ -185,12 +185,12 @@ module KBaseRBTnSeq {
         string num_lines;
         genes_table_ref related_genes_table_ref;
         string related_organism_scientific_name;
-        model_ref model_ref;
+        transposon_model_ref transposon_model_ref;
         fastqs fastqs_used; 
         string fastqs_used_str; 
         string description;
     
-    } RBTS_PoolFile;
+    } RBTS_MutantPoolFile;
 
 
   
@@ -201,7 +201,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type KBaseRBTnSeq.RBTS_PoolCount
+    file_type KBaseRBTnSeq.RBTS_MutantPoolCount
     handle_id will be poolcount file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     column_header_list will be
@@ -256,7 +256,7 @@ module KBaseRBTnSeq {
         poolfile_ref poolfile_ref;
         string description;
     
-    } RBTS_PoolCount;
+    } RBTS_MutantPoolCount;
 
 
     /*
@@ -317,7 +317,11 @@ module KBaseRBTnSeq {
 
 
 
+    /*
 
+    Below are the previously created data types
+
+    */
 
 
 
