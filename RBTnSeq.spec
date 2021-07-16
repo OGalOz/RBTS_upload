@@ -307,7 +307,6 @@ module KBaseRBTnSeq {
     @metadata ws shock_node_id as shock_node_id
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
-    @metadata ws related_experiments_ref as related_experiments_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws description
     @metadata ws num_lines
@@ -326,7 +325,6 @@ module KBaseRBTnSeq {
         string column_headers_str;
         string num_lines;
         genes_table_ref related_genes_table_ref;
-        experiments_ref related_experiments_ref;
         string related_organism_scientific_name;
         string poolfile_ref;
         string description;
@@ -373,6 +371,7 @@ module KBaseRBTnSeq {
     @metadata ws t_scores_shock_node_id as t_scores_shock_node_id
     @metadata ws num_lines as num_lines
     @metadata ws column_headers_str as column_headers_str
+    @metadata ws related_experiments_ref as related_experiments_ref
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws poolcounts_used_str as poolcounts_used_str
@@ -397,6 +396,7 @@ module KBaseRBTnSeq {
         string column_headers_str;
         string num_lines;
         genes_table_ref related_genes_table_ref;
+        experiments_ref related_experiments_ref;
         string related_organism_scientific_name;
         poolcounts poolcounts_used; 
         string poolcounts_used_str; 
