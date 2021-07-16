@@ -62,6 +62,12 @@ module KBaseRBTnSeq {
 
 
     /*
+    @id ws KBaseRBTnSeq.RBTS_ExperimentsTable
+    */
+    typedef string experiments_ref;
+
+
+    /*
     A header for a  column
     */
     typedef string col_header;
@@ -289,6 +295,7 @@ module KBaseRBTnSeq {
     utc_created - the Coordinated Universal Time of creation
     num_lines - the number of lines in the file - keeps track of the general size
     related_genes_table_ref -  the genes_table which is related to the pool file.
+    related_experiments_ref -  the genes_table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     description - A description given by the uploader as to what the
         pool file means.
@@ -300,6 +307,7 @@ module KBaseRBTnSeq {
     @metadata ws shock_node_id as shock_node_id
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
+    @metadata ws related_experiments_ref as related_experiments_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws description
     @metadata ws num_lines
@@ -318,6 +326,7 @@ module KBaseRBTnSeq {
         string column_headers_str;
         string num_lines;
         genes_table_ref related_genes_table_ref;
+        experiments_ref related_experiments_ref;
         string related_organism_scientific_name;
         string poolfile_ref;
         string description;
