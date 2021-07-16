@@ -358,10 +358,11 @@ module KBaseRBTnSeq {
     @optional poolcounts_used poolcounts_used_str
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
-    @metadata ws shock_url as shock_url
-    @metadata ws shock_node_id as shock_node_id
+    @metadata ws fitness_shock_url as fitness_shock_url
+    @metadata ws t_scores_shock_url as t_scores_shock_url
+    @metadata ws fitness_shock_node_id as fitness_shock_node_id
+    @metadata ws t_scores_shock_node_id as t_scores_shock_node_id
     @metadata ws num_lines as num_lines
-    @metadata ws model_ref as model_ref
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
