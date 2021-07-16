@@ -21,6 +21,17 @@ module KBaseRBTnSeq {
 
 
     /*
+    @id ws KBaseFile.SingleEndLibrary 
+    */
+    typedef string fastq_ref;
+   
+    /*
+    A list of fastq_refs
+    */
+    typedef list<fastq_ref> fastqs;
+
+
+    /*
     @id ws KBaseRBTnSeq.RBTS_InputGenesTable
     */
     typedef string genes_table_ref;
@@ -37,15 +48,18 @@ module KBaseRBTnSeq {
     */
     typedef string poolfile_ref;
     
+
     /*
-    @id ws KBaseFile.SingleEndLibrary 
+    @id ws KBaseRBTnSeq.RBTS_MutantPoolCount
     */
-    typedef string fastq_ref;
-   
+    typedef string poolcount_ref;
+
+
     /*
-    A list of fastq_refs
+    A list of poolcount_refs
     */
-    typedef list<fastq_ref> fastqs;
+    typedef list<poolcount_ref> poolcounts;
+
 
     /*
     A header for a  column
@@ -193,13 +207,6 @@ module KBaseRBTnSeq {
     } RBTS_MutantPoolFile;
 
 
-  
-
-
-
-
-
-
     /*
     file_type KBaseRBTnSeq.RBTS_MutantPoolCount
     handle_id will be poolcount file handle
@@ -217,11 +224,12 @@ module KBaseRBTnSeq {
     related_genes_table_ref - the genes table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     fastqs_used - the fastqs used to create the poolcount file
+    fastqs_used_str - the string of the fastqs used to create the poolcount file
     poolfile_ref - the ref for the poolfile used to create the poolcount file
     description - A description given by the uploader as to what the
         pool file means.
     
-    @optional poolfile_ref fastqs_used
+    @optional poolfile_ref fastqs_used fastqs_used_str
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws shock_url as shock_url
@@ -277,6 +285,7 @@ module KBaseRBTnSeq {
     shock_node_id - the id of the shock node in the server
     compression_type - the type of compression used
     file_name - the name of the file
+    poolfile_ref - the poolfile related to these experiments
     utc_created - the Coordinated Universal Time of creation
     num_lines - the number of lines in the file - keeps track of the general size
     related_genes_table_ref -  the genes_table which is related to the pool file.
@@ -314,6 +323,76 @@ module KBaseRBTnSeq {
         string description;
 
     } RBTS_ExperimentsTable;
+
+
+    /*
+
+    We will have two files - the fitness handle and the t_scores_handle
+
+    file_type - KBaseRBTnSeq.RBTS_Gene_Fitness_T_Matrix, the name of the file type.
+    fit_scores_handle - Fitnes scores file handle; allows to download file, and get info re. shock node, shock url,
+    t_scores_handle - T Scores file handle; like above fit_scores_handle
+    handle_type - the type of the handle. This should always be ‘shock’.
+    fitness_shock_url - the url of the shock server
+    t_scores_shock_url - the url of the shock server
+    fitness_shock_node_id - the id of the fitness shock node in the server
+    t_scores_shock_node_id - the id of the t_score file shock node in the server
+    compression_type - the type of compression used
+    fitness_file_name - the name of the file
+    t_scores_file_name - the name of the file
+    utc_created - the Coordinated Universal Time of creation
+    column_header_list - The column headers for both files is exactly the same.
+                        This is a list of the headers of the columns, the length of this 
+                        list should be the num of columns in the files. Currently: 
+                        <"orgId", "locusId", "sysName", "geneName", "desc", [conditions]>
+                        Where the number of conditions is variable.
+    column_headers_str - a string; comma-separated column headers for the file
+    num_lines - the number of lines in the file - keeps track of the general size
+    related_genes_table_ref - the genes table which is related to the pool file.
+    related_organism_scientific_name -  the related scientific_name from the genome_ref
+    poolcounts_used - the poolcounts which were used to create the poolfile
+    poolcounts_used_str - comma separated string with refs of poolcounts used to create file. 
+    description - A description given by the uploader as to what the
+        fitness matrix represents.
+    
+    @optional poolcounts_used poolcounts_used_str
+    @metadata ws utc_created as utc_created
+    @metadata ws handle_type as handle_type
+    @metadata ws shock_url as shock_url
+    @metadata ws shock_node_id as shock_node_id
+    @metadata ws num_lines as num_lines
+    @metadata ws model_ref as model_ref
+    @metadata ws column_headers_str as column_headers_str
+    @metadata ws related_genes_table_ref as related_genes_table_ref
+    @metadata ws related_organism_scientific_name as related_organism_scientific_name
+    @metadata ws poolcounts_used_str as poolcounts_used_str
+    @metadata ws description
+    */
+
+    typedef structure {
+
+        string file_type;
+        handle_id fit_scores_handle;
+        handle_id t_scores_handle;
+        string handle_type;
+        string fitness_shock_url;
+        string t_scores_shock_url;
+        string fitness_shock_node_id;
+        string t_scores_shock_node_id;
+        string compression_type;
+        string fitness_file_name;
+        string t_scores_file_name;
+        string utc_created;
+        col_list column_header_list;
+        string column_headers_str;
+        string num_lines;
+        genes_table_ref related_genes_table_ref;
+        string related_organism_scientific_name;
+        poolcounts poolcounts_used; 
+        string poolcounts_used_str; 
+        string description;
+    
+    } RBTS_Gene_Fitness_T_Matrix;
 
 
 
