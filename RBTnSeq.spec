@@ -294,6 +294,7 @@ module KBaseRBTnSeq {
     poolfile_ref - the poolfile related to these experiments
     utc_created - the Coordinated Universal Time of creation
     num_lines - the number of lines in the file - keeps track of the general size
+    num_cols - the number of cols in the file - keeps track of the general size
     related_genes_table_ref -  the genes_table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     description - A description given by the uploader as to what the
@@ -304,11 +305,11 @@ module KBaseRBTnSeq {
     @metadata ws handle_type as handle_type
     @metadata ws shock_url as shock_url
     @metadata ws shock_node_id as shock_node_id
-    @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws description
     @metadata ws num_lines
+    @metadata ws num_cols
     */
     typedef structure {
 
@@ -321,7 +322,7 @@ module KBaseRBTnSeq {
         string file_name;
         string utc_created;
         col_list column_header_list;
-        string column_headers_str;
+        string num_cols;
         string num_lines;
         genes_table_ref related_genes_table_ref;
         string related_organism_scientific_name;
@@ -352,7 +353,7 @@ module KBaseRBTnSeq {
                         list should be the num of columns in the files. Currently: 
                         <"orgId", "locusId", "sysName", "geneName", "desc", [conditions]>
                         Where the number of conditions is variable.
-    column_headers_str - a string; comma-separated column headers for the file
+    num_cols - the number of columns in the file - keeps track of general size
     num_lines - the number of lines in the file - keeps track of the general size
     related_experiments_ref -  the genes_table which is related to the pool file.
     related_genes_table_ref - the genes table which is related to the pool file.
@@ -369,8 +370,8 @@ module KBaseRBTnSeq {
     @metadata ws t_scores_shock_url as t_scores_shock_url
     @metadata ws fitness_shock_node_id as fitness_shock_node_id
     @metadata ws t_scores_shock_node_id as t_scores_shock_node_id
+    @metadata ws num_cols as num_cols
     @metadata ws num_lines as num_lines
-    @metadata ws column_headers_str as column_headers_str
     @metadata ws related_experiments_ref as related_experiments_ref
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
@@ -393,7 +394,7 @@ module KBaseRBTnSeq {
         string t_scores_file_name;
         string utc_created;
         col_list column_header_list;
-        string column_headers_str;
+        string num_cols;
         string num_lines;
         genes_table_ref related_genes_table_ref;
         experiments_ref related_experiments_ref;
