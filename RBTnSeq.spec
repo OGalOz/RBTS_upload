@@ -295,7 +295,6 @@ module KBaseRBTnSeq {
     utc_created - the Coordinated Universal Time of creation
     num_lines - the number of lines in the file - keeps track of the general size
     related_genes_table_ref -  the genes_table which is related to the pool file.
-    related_experiments_ref -  the genes_table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     description - A description given by the uploader as to what the
         pool file means.
@@ -355,6 +354,7 @@ module KBaseRBTnSeq {
                         Where the number of conditions is variable.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
+    related_experiments_ref -  the genes_table which is related to the pool file.
     related_genes_table_ref - the genes table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     poolcounts_used - the poolcounts which were used to create the poolfile
