@@ -342,18 +342,18 @@ module KBaseRBTnSeq {
     file_type - KBaseRBTnSeq.RBTS_Gene_Fitness_T_Matrix, the name of the file type.
     fit_scores_handle - Fitnes scores file handle; allows to download file, and get info re. shock node, shock url,
     t_scores_handle - T Scores file handle; like above fit_scores_handle
-    strain_fit_handle - Strain Fitness file handle
+    [strain_fit_handle] - Optional Strain Fitness file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     fitness_shock_url - the url of the shock server
     t_scores_shock_url - the url of the shock server
-    strain_fit_shock_url - the url of the shock server
+    [strain_fit_shock_url] - the url of the shock server
     fitness_shock_node_id - the id of the fitness shock node in the server
     t_scores_shock_node_id - the id of the t_score file shock node in the server
-    strain_fit_shock_node_id - the id of the t_score file shock node in the server
+    [strain_fit_shock_node_id] - the id of the t_score file shock node in the server
     compression_type - the type of compression used
     fitness_file_name - the name of the file
     t_scores_file_name - the name of the file
-    strain_fit_file_name - the name of the file
+    [strain_fit_file_name] - the name of the file
     utc_created - the Coordinated Universal Time of creation
     column_header_list - The column headers for both scores files is exactly the same.
                         This is a list of the headers of the columns, the length of this 
@@ -369,14 +369,17 @@ module KBaseRBTnSeq {
     poolcounts_used - the poolcounts which were used to create the poolfile
     description - A description given by the uploader as to what the
         fitness matrix represents.
+
     
-    @optional poolcounts_used
+    @optional poolcounts_used, strain_fit_handle, strain_fit_shock_url, strain_fit_shock_node_id, strain_fit_file_name
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws fitness_shock_url as fitness_shock_url
     @metadata ws t_scores_shock_url as t_scores_shock_url
+    @metadata ws strain_fit_shock_url as strain_fit_shock_url
     @metadata ws fitness_shock_node_id as fitness_shock_node_id
     @metadata ws t_scores_shock_node_id as t_scores_shock_node_id
+    @metadata ws strain_fit_shock_node_id as strain_fit_shock_node_id
     @metadata ws num_cols as num_cols
     @metadata ws num_lines as num_lines
     @metadata ws related_experiments_ref as related_experiments_ref
