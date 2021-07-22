@@ -367,11 +367,10 @@ module KBaseRBTnSeq {
     related_genes_table_ref - the genes table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     poolcounts_used - the poolcounts which were used to create the poolfile
-    poolcounts_used_str - comma separated string with refs of poolcounts used to create file. 
     description - A description given by the uploader as to what the
         fitness matrix represents.
     
-    @optional poolcounts_used poolcounts_used_str
+    @optional poolcounts_used
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws fitness_shock_url as fitness_shock_url
