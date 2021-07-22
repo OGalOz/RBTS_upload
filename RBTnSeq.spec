@@ -131,6 +131,7 @@ module KBaseRBTnSeq {
     utc_created - the Coordinated Universal Time of creation
     standard_model_name - e.g. 'Sc_Tn5', or 'pKMW3_universal', or the custom model name if custom
     model_string - The model string: e.g.  nnnnnnGATGTCCACGAGGTCTCTNNNNNNNNNNNNNNNNNNNNCGTACGCTGCAGGTCGACGGCCGGCCAGACCGGGGACTTATCAGCCAACCTGT
+                    Note, it is important that start of model is lowercase n and only the barcode section is uppercase n.
     past_end_string - The Past end string: e.g. TATGTGTTGGGTAACGCCAGGGTTTTCCCAGTCACGACGTTGTAAAACGACGGCCAGTGAATTAATTCTTGAAGA
     description - A description given by the uploader as to what the pool file means.
    
@@ -286,7 +287,6 @@ module KBaseRBTnSeq {
             Condition_1, Concentration_1, Units_1, Condition_2, Concentration_2,
             Units_2, Timecourse, Timecourse Sample, Growth Plate ID, 
             Growth Plate wells, StartOK, EndOD, Total Generations
-    column_headers_str - a string; comma-separated column headers for the file
     shock_url - the url of the shock server
     shock_node_id - the id of the shock node in the server
     compression_type - the type of compression used
@@ -334,27 +334,35 @@ module KBaseRBTnSeq {
 
     /*
 
-    We will have two files - the fitness handle and the t_scores_handle
+    We will have three files - the fitness handle, t_scores_handle, and strain fitness handle.
+        The fitness and t_score tables have the exact same shape, with corresponding
+        fitness values and t scores. The strain fitness table will have
+        a different shape from those t
 
     file_type - KBaseRBTnSeq.RBTS_Gene_Fitness_T_Matrix, the name of the file type.
     fit_scores_handle - Fitnes scores file handle; allows to download file, and get info re. shock node, shock url,
     t_scores_handle - T Scores file handle; like above fit_scores_handle
+    strain_fit_handle - Strain Fitness file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     fitness_shock_url - the url of the shock server
     t_scores_shock_url - the url of the shock server
+    strain_fit_shock_url - the url of the shock server
     fitness_shock_node_id - the id of the fitness shock node in the server
     t_scores_shock_node_id - the id of the t_score file shock node in the server
+    strain_fit_shock_node_id - the id of the t_score file shock node in the server
     compression_type - the type of compression used
     fitness_file_name - the name of the file
     t_scores_file_name - the name of the file
+    strain_fit_file_name - the name of the file
     utc_created - the Coordinated Universal Time of creation
-    column_header_list - The column headers for both files is exactly the same.
+    column_header_list - The column headers for both scores files is exactly the same.
                         This is a list of the headers of the columns, the length of this 
                         list should be the num of columns in the files. Currently: 
                         <"orgId", "locusId", "sysName", "geneName", "desc", [conditions]>
                         Where the number of conditions is variable.
-    num_cols - the number of columns in the file - keeps track of general size
-    num_lines - the number of lines in the file - keeps track of the general size
+
+    num_cols - (for metadata) the number of columns in the files - keeps track of general size
+    num_lines - (for metadata) the number of lines in the file - keeps track of the general size
     related_experiments_ref -  the genes_table which is related to the pool file.
     related_genes_table_ref - the genes table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
@@ -375,7 +383,6 @@ module KBaseRBTnSeq {
     @metadata ws related_experiments_ref as related_experiments_ref
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
-    @metadata ws poolcounts_used_str as poolcounts_used_str
     @metadata ws description
     */
 
@@ -384,14 +391,18 @@ module KBaseRBTnSeq {
         string file_type;
         handle_id fit_scores_handle;
         handle_id t_scores_handle;
+        handle_id strain_fit_handle;
         string handle_type;
         string fitness_shock_url;
         string t_scores_shock_url;
+        string strain_fit_shock_url;
         string fitness_shock_node_id;
         string t_scores_shock_node_id;
+        string strain_fit_shock_node_id;
         string compression_type;
         string fitness_file_name;
         string t_scores_file_name;
+        string strain_fit_file_name;
         string utc_created;
         col_list column_header_list;
         string num_cols;
@@ -400,7 +411,6 @@ module KBaseRBTnSeq {
         experiments_ref related_experiments_ref;
         string related_organism_scientific_name;
         poolcounts poolcounts_used; 
-        string poolcounts_used_str; 
         string description;
     
     } RBTS_Gene_Fitness_T_Matrix;
