@@ -371,7 +371,7 @@ module KBaseRBTnSeq {
         fitness matrix represents.
 
     
-    @optional poolcounts_used, strain_fit_handle, strain_fit_shock_url, strain_fit_shock_node_id, strain_fit_file_name
+    @optional poolcounts_used strain_fit_handle strain_fit_shock_url strain_fit_shock_node_id strain_fit_file_name
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws fitness_shock_url as fitness_shock_url
