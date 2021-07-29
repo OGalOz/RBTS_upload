@@ -127,6 +127,7 @@ module KBaseRBTnSeq {
 
 
     /*
+    The following data type is no longer in use
     file_type - KBaseRBTnSeq.RBTS_TransposonModel, the name of the file type.
     utc_created - the Coordinated Universal Time of creation
     standard_model_name - e.g. 'Sc_Tn5', or 'pKMW3_universal', or the custom model name if custom
@@ -171,7 +172,7 @@ module KBaseRBTnSeq {
         making a total of 12 columns.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
-    model_ref - The model reference (ID) of the model used to create this poolfile
+    tnseq_model_name - The name of the standard tnseq model used to create this poolfile
     related_genes_table_ref - the genes table which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     fastqs_used - the fastqs which were used to create the poolfile
@@ -185,7 +186,7 @@ module KBaseRBTnSeq {
     @metadata ws shock_url as shock_url
     @metadata ws shock_node_id as shock_node_id
     @metadata ws num_lines as num_lines
-    @metadata ws model_ref as model_ref
+    @metadata ws tnseq_model_name as tnseq_model_name
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genes_table_ref as related_genes_table_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
@@ -206,7 +207,7 @@ module KBaseRBTnSeq {
         string num_lines;
         genes_table_ref related_genes_table_ref;
         string related_organism_scientific_name;
-        model_ref model_ref;
+        string tnseq_model_name;
         fastqs fastqs_used; 
         string fastqs_used_str; 
         string description;
