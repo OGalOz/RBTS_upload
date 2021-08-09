@@ -173,7 +173,7 @@ module KBaseRBTnSeq {
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
     tnseq_model_name - The name of the standard tnseq model used to create this poolfile
-    related_genes_table_ref - the genes table which is related to the pool file.
+    related_genome_ref - the genome object which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     fastqs_used - the fastqs which were used to create the poolfile
     fastqs_used_str - comma separated string with refs of fastqs used to create file. 
@@ -188,7 +188,7 @@ module KBaseRBTnSeq {
     @metadata ws num_lines as num_lines
     @metadata ws tnseq_model_name as tnseq_model_name
     @metadata ws column_headers_str as column_headers_str
-    @metadata ws related_genes_table_ref as related_genes_table_ref
+    @metadata ws related_genome_ref as related_genome_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws fastqs_used_str as fastqs_used_str
     @metadata ws description
@@ -205,7 +205,7 @@ module KBaseRBTnSeq {
         col_list column_header_list;
         string column_headers_str;
         string num_lines;
-        genes_table_ref related_genes_table_ref;
+        genome_ref related_genome_ref;
         string related_organism_scientific_name;
         string tnseq_model_name;
         fastqs fastqs_used; 
@@ -229,7 +229,7 @@ module KBaseRBTnSeq {
     utc_created - the Coordinated Universal Time of creation
     set_name - the name of the set
     num_lines - the number of lines in the file - keeps track of the general size
-    related_genes_table_ref - the genes table which is related to the pool file.
+    related_genome_ref - the genome object which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     fastqs_used - the fastqs used to create the poolcount file
     fastqs_used_str - the string of the fastqs used to create the poolcount file
@@ -244,7 +244,7 @@ module KBaseRBTnSeq {
     @metadata ws shock_node_id as shock_node_id
     @metadata ws set_name
     @metadata ws column_headers_str as column_headers_str
-    @metadata ws related_genes_table_ref as related_genes_table_ref
+    @metadata ws related_genome_ref as related_genome_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws fastqs_used_str as fastqs_used_str
     @metadata ws poolfile_ref
@@ -265,7 +265,7 @@ module KBaseRBTnSeq {
         string utc_created;
         string set_name;
         string num_lines;
-        genes_table_ref related_genes_table_ref;
+        genome_ref related_genome_ref;
         string related_organism_scientific_name;
         fastqs fastqs_used; 
         string fastqs_used_str; 
@@ -296,7 +296,7 @@ module KBaseRBTnSeq {
     utc_created - the Coordinated Universal Time of creation
     num_lines - the number of lines in the file - keeps track of the general size
     num_cols - the number of cols in the file - keeps track of the general size
-    related_genes_table_ref -  the genes_table which is related to the pool file.
+    related_genome_ref -  the genome object which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     description - A description given by the uploader as to what the
         pool file means.
@@ -306,7 +306,7 @@ module KBaseRBTnSeq {
     @metadata ws handle_type as handle_type
     @metadata ws shock_url as shock_url
     @metadata ws shock_node_id as shock_node_id
-    @metadata ws related_genes_table_ref as related_genes_table_ref
+    @metadata ws related_genome_ref as related_genome_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws description
     @metadata ws num_lines
@@ -325,7 +325,7 @@ module KBaseRBTnSeq {
         col_list column_header_list;
         string num_cols;
         string num_lines;
-        genes_table_ref related_genes_table_ref;
+        genome_ref related_genome_ref;
         string related_organism_scientific_name;
         string poolfile_ref;
         string description;
@@ -365,7 +365,7 @@ module KBaseRBTnSeq {
     num_cols - (for metadata) the number of columns in the files - keeps track of general size
     num_lines - (for metadata) the number of lines in the file - keeps track of the general size
     related_experiments_ref -  the genes_table which is related to the pool file.
-    related_genes_table_ref - the genes table which is related to the pool file.
+    related_genome_ref - the genome ref which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     poolcounts_used - the poolcounts which were used to create the poolfile
     description - A description given by the uploader as to what the
@@ -384,7 +384,7 @@ module KBaseRBTnSeq {
     @metadata ws num_cols as num_cols
     @metadata ws num_lines as num_lines
     @metadata ws related_experiments_ref as related_experiments_ref
-    @metadata ws related_genes_table_ref as related_genes_table_ref
+    @metadata ws related_genome_ref as related_genome_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws description
     */
@@ -410,7 +410,7 @@ module KBaseRBTnSeq {
         col_list column_header_list;
         string num_cols;
         string num_lines;
-        genes_table_ref related_genes_table_ref;
+        genome_ref related_genome_ref;
         experiments_ref related_experiments_ref;
         string related_organism_scientific_name;
         poolcounts poolcounts_used; 
