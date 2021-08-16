@@ -231,6 +231,8 @@ module KBaseRBTnSeq {
     num_lines - the number of lines in the file - keeps track of the general size
     related_genome_ref - the genome object which is related to the pool file.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
+    protocol_used - which protocol was used in the creation of this file - 
+                    barseq3? barseq2 (n25)? 
     fastqs_used - the fastqs used to create the poolcount file
     fastqs_used_str - the string of the fastqs used to create the poolcount file
     poolfile_ref - the ref for the poolfile used to create the poolcount file
@@ -243,6 +245,7 @@ module KBaseRBTnSeq {
     @metadata ws shock_url as shock_url
     @metadata ws shock_node_id as shock_node_id
     @metadata ws set_name
+    @metadata ws protocol_used as protocol_used
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genome_ref as related_genome_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
@@ -267,6 +270,7 @@ module KBaseRBTnSeq {
         string num_lines;
         genome_ref related_genome_ref;
         string related_organism_scientific_name;
+        string protocol_used;
         fastqs fastqs_used; 
         string fastqs_used_str; 
         poolfile_ref poolfile_ref;
