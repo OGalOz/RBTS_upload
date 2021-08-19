@@ -44,21 +44,21 @@ module KBaseRBTnSeq {
 
 
     /*
-    @id ws KBaseRBTnSeq.RBTS_MutantPoolFile
+    @id ws KBaseRBTnSeq.RBTS_MutantPool
     */
-    typedef string poolfile_ref;
+    typedef string mutantpool_ref;
     
 
     /*
-    @id ws KBaseRBTnSeq.RBTS_MutantPoolCount
+    @id ws KBaseRBTnSeq.RBTS_BarcodeCount
     */
-    typedef string poolcount_ref;
+    typedef string barcodecount_ref;
 
 
     /*
-    A list of poolcount_refs
+    A list of barcodecount_refs
     */
-    typedef list<poolcount_ref> poolcounts;
+    typedef list<barcodecount_ref> barcodecounts;
 
 
     /*
@@ -95,7 +95,7 @@ module KBaseRBTnSeq {
         making a total of 11 columns.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
-    related_genome_ref -  the genome which is related to the pool file.
+    related_genome_ref -  the genome which is related to the mutant pool.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
    
     @optional related_genome_ref 
@@ -134,7 +134,7 @@ module KBaseRBTnSeq {
     model_string - The model string: e.g.  nnnnnnGATGTCCACGAGGTCTCTNNNNNNNNNNNNNNNNNNNNCGTACGCTGCAGGTCGACGGCCGGCCAGACCGGGGACTTATCAGCCAACCTGT
                     Note, it is important that start of model is lowercase n and only the barcode section is uppercase n.
     past_end_string - The Past end string: e.g. TATGTGTTGGGTAACGCCAGGGTTTTCCCAGTCACGACGTTGTAAAACGACGGCCAGTGAATTAATTCTTGAAGA
-    description - A description given by the uploader as to what the pool file means.
+    description - A description given by the uploader as to what the mutant pool means.
    
     @metadata ws utc_created as utc_created
     @metadata ws standard_model_name as standard_model_name
@@ -157,8 +157,8 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type - KBaseRBTnSeq.RBTS_MutantPoolFile, the name of the file type.
-    poolfile - handle that allows to download file, and get info re. shock node, shock url,
+    file_type - KBaseRBTnSeq.RBTS_MutantPool, the name of the file type.
+    mutantpool - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
     shock_url - the url of the shock server
     shock_node_id - the id of the shock node in the server
@@ -172,13 +172,13 @@ module KBaseRBTnSeq {
         making a total of 12 columns.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
-    tnseq_model_name - The name of the standard tnseq model used to create this poolfile
-    related_genome_ref - the genome object which is related to the pool file.
+    tnseq_model_name - The name of the standard tnseq model used to create this mutantpool
+    related_genome_ref - the genome object which is related to the mutant pool.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
-    fastqs_used - the fastqs which were used to create the poolfile
+    fastqs_used - the fastqs which were used to create the mutantpool
     fastqs_used_str - comma separated string with refs of fastqs used to create file. 
     description - A description given by the uploader as to what the
-        pool file means.
+        mutant pool means.
     
     @optional fastqs_used
     @metadata ws utc_created as utc_created
@@ -195,7 +195,7 @@ module KBaseRBTnSeq {
     */
     typedef structure {
         string file_type;
-        handle_id poolfile;
+        handle_id mutantpool;
         string handle_type;
         string shock_url;
         string shock_node_id;
@@ -212,12 +212,12 @@ module KBaseRBTnSeq {
         string fastqs_used_str; 
         string description;
     
-    } RBTS_MutantPoolFile;
+    } RBTS_MutantPool;
 
 
     /*
-    file_type KBaseRBTnSeq.RBTS_MutantPoolCount
-    handle_id will be poolcount file handle
+    file_type KBaseRBTnSeq.RBTS_BarcodeCount
+    handle_id will be barcodecount file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     column_header_list will be
         barcode, rcbarcode, scaffold, strand, pos, and an unknown number of columns
@@ -229,17 +229,17 @@ module KBaseRBTnSeq {
     utc_created - the Coordinated Universal Time of creation
     set_name - the name of the set
     num_lines - the number of lines in the file - keeps track of the general size
-    related_genome_ref - the genome object which is related to the pool file.
+    related_genome_ref - the genome object which is related to the mutant pool.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     protocol_used - which protocol was used in the creation of this file - 
                     barseq3? barseq2 (n25)? 
-    fastqs_used - the fastqs used to create the poolcount file
-    fastqs_used_str - the string of the fastqs used to create the poolcount file
-    poolfile_ref - the ref for the poolfile used to create the poolcount file
+    fastqs_used - the fastqs used to create the barcodecount file
+    fastqs_used_str - the string of the fastqs used to create the barcodecount file
+    mutantpool_ref - the ref for the mutantpool used to create the barcodecount file
     description - A description given by the uploader as to what the
-        pool file means.
+        mutant pool means.
     
-    @optional poolfile_ref fastqs_used fastqs_used_str
+    @optional mutantpool_ref fastqs_used fastqs_used_str
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws shock_url as shock_url
@@ -250,14 +250,14 @@ module KBaseRBTnSeq {
     @metadata ws related_genome_ref as related_genome_ref
     @metadata ws related_organism_scientific_name as related_organism_scientific_name
     @metadata ws fastqs_used_str as fastqs_used_str
-    @metadata ws poolfile_ref
+    @metadata ws mutantpool_ref
     @metadata ws description
     @metadata ws num_lines
     */
     typedef structure {
 
         string file_type;
-        handle_id poolcount;
+        handle_id barcodecount;
         string handle_type;
         col_list column_header_list;
         string column_headers_str;
@@ -273,10 +273,10 @@ module KBaseRBTnSeq {
         string protocol_used;
         fastqs fastqs_used; 
         string fastqs_used_str; 
-        poolfile_ref poolfile_ref;
+        mutantpool_ref mutantpool_ref;
         string description;
     
-    } RBTS_MutantPoolCount;
+    } RBTS_BarcodeCount;
 
 
     /*
@@ -296,16 +296,16 @@ module KBaseRBTnSeq {
     shock_node_id - the id of the shock node in the server
     compression_type - the type of compression used
     file_name - the name of the file
-    poolfile_ref - the poolfile related to these experiments
+    mutantpool_ref - the mutantpool related to these experiments
     utc_created - the Coordinated Universal Time of creation
     num_lines - the number of lines in the file - keeps track of the general size
     num_cols - the number of cols in the file - keeps track of the general size
-    related_genome_ref -  the genome object which is related to the pool file.
+    related_genome_ref -  the genome object which is related to the mutant pool.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
     description - A description given by the uploader as to what the
-        pool file means.
+        mutant pool means.
 
-    @optional poolfile_ref
+    @optional mutantpool_ref
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws shock_url as shock_url
@@ -331,7 +331,7 @@ module KBaseRBTnSeq {
         string num_lines;
         genome_ref related_genome_ref;
         string related_organism_scientific_name;
-        string poolfile_ref;
+        string mutantpool_ref;
         string description;
 
     } RBTS_ExperimentsTable;
@@ -368,15 +368,15 @@ module KBaseRBTnSeq {
 
     num_cols - (for metadata) the number of columns in the files - keeps track of general size
     num_lines - (for metadata) the number of lines in the file - keeps track of the general size
-    related_experiments_ref -  the genes_table which is related to the pool file.
-    related_genome_ref - the genome ref which is related to the pool file.
+    related_experiments_ref -  the genes_table which is related to the mutant pool.
+    related_genome_ref - the genome ref which is related to the mutant pool.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
-    poolcounts_used - the poolcounts which were used to create the poolfile
+    barcodecounts_used - the barcodecounts which were used to create the mutantpool
     description - A description given by the uploader as to what the
         fitness matrix represents.
 
     
-    @optional poolcounts_used strain_fit_handle strain_fit_shock_url strain_fit_shock_node_id strain_fit_file_name
+    @optional barcodecounts_used strain_fit_handle strain_fit_shock_url strain_fit_shock_node_id strain_fit_file_name
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws fitness_shock_url as fitness_shock_url
@@ -417,7 +417,7 @@ module KBaseRBTnSeq {
         genome_ref related_genome_ref;
         experiments_ref related_experiments_ref;
         string related_organism_scientific_name;
-        poolcounts poolcounts_used; 
+        barcodecounts barcodecounts_used; 
         string description;
     
     } RBTS_Gene_Fitness_T_Matrix;
