@@ -81,6 +81,8 @@ module KBaseRBTnSeq {
    
 
     /*
+    This datatype is not in use.
+
     file_type - KBaseRBTnSeq.RBTS_InputGenesTable, the name of the file type.
     input_genes_table - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
@@ -172,6 +174,7 @@ module KBaseRBTnSeq {
         making a total of 12 columns.
     column_headers_str - a string; comma-separated column headers for the file
     num_lines - the number of lines in the file - keeps track of the general size
+    gene_hit_frac - Fraction of non-essential genes that were hit
     tnseq_model_name - The name of the standard tnseq model used to create this mutantpool
     related_genome_ref - the genome object which is related to the mutant pool.
     related_organism_scientific_name -  the related scientific_name from the genome_ref
@@ -180,12 +183,13 @@ module KBaseRBTnSeq {
     description - A description given by the uploader as to what the
         mutant pool means.
     
-    @optional fastqs_used
+    @optional fastqs_used gene_hit_frac
     @metadata ws utc_created as utc_created
     @metadata ws handle_type as handle_type
     @metadata ws shock_url as shock_url
     @metadata ws shock_node_id as shock_node_id
     @metadata ws num_lines as num_lines
+    @metadata ws gene_hit_frac as gene_hit_frac
     @metadata ws tnseq_model_name as tnseq_model_name
     @metadata ws column_headers_str as column_headers_str
     @metadata ws related_genome_ref as related_genome_ref
@@ -205,6 +209,7 @@ module KBaseRBTnSeq {
         col_list column_header_list;
         string column_headers_str;
         string num_lines;
+        string gene_hit_frac;
         genome_ref related_genome_ref;
         string related_organism_scientific_name;
         string tnseq_model_name;
