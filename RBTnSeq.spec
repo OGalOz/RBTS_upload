@@ -83,7 +83,7 @@ module KBaseRBTnSeq {
     /*
     This datatype is not in use.
 
-    file_type - KBaseRBTnSeq.RBTS_InputGenesTable, the name of the file type.
+    version_num - Version for KBaseRBTnSeq.RBTS_InputGenesTable, the name of the file type.
     input_genes_table - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
     shock_url - the url of the shock server
@@ -112,7 +112,7 @@ module KBaseRBTnSeq {
     */
 
     typedef structure {
-        string file_type;
+        string version_num;
         handle_id input_genes_table;
         string handle_type;
         string shock_url;
@@ -130,7 +130,7 @@ module KBaseRBTnSeq {
 
     /*
     The following data type is no longer in use
-    file_type - KBaseRBTnSeq.RBTS_TransposonModel, the name of the file type.
+    version_num - Version for KBaseRBTnSeq.RBTS_TransposonModel, the name of the file type.
     utc_created - the Coordinated Universal Time of creation
     standard_model_name - e.g. 'Sc_Tn5', or 'pKMW3_universal', or the custom model name if custom
     model_string - The model string: e.g.  nnnnnnGATGTCCACGAGGTCTCTNNNNNNNNNNNNNNNNNNNNCGTACGCTGCAGGTCGACGGCCGGCCAGACCGGGGACTTATCAGCCAACCTGT
@@ -146,7 +146,7 @@ module KBaseRBTnSeq {
     */
 
     typedef structure {
-        string file_type;
+        string version_num;
         string utc_created;
         string standard_model_name;
         string model_string;
@@ -159,7 +159,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type - KBaseRBTnSeq.RBTS_MutantPool, the name of the file type.
+    version_num - Version for KBaseRBTnSeq.RBTS_MutantPool, the name of the file type.
     mutantpool - handle that allows to download file, and get info re. shock node, shock url,
     handle_type - the type of the handle. This should always be ‘shock’.
     shock_url - the url of the shock server
@@ -198,7 +198,7 @@ module KBaseRBTnSeq {
     @metadata ws description
     */
     typedef structure {
-        string file_type;
+        string version_num;
         handle_id mutantpool;
         string handle_type;
         string shock_url;
@@ -221,7 +221,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type KBaseRBTnSeq.RBTS_BarcodeCount
+    version_num KBaseRBTnSeq.RBTS_BarcodeCount
     handle_id will be barcodecount file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     column_header_list will be
@@ -261,7 +261,7 @@ module KBaseRBTnSeq {
     */
     typedef structure {
 
-        string file_type;
+        string version_num;
         handle_id barcodecount;
         string handle_type;
         col_list column_header_list;
@@ -285,7 +285,7 @@ module KBaseRBTnSeq {
 
 
     /*
-    file_type KBaseRBTnSeq.RBTS_ExperimentsTable
+    version_num KBaseRBTnSeq.RBTS_ExperimentsTable
     exps_file will be experiments file handle
     handle_type - the type of the handle. This should always be ‘shock’.
     column_header_list will have required parts:
@@ -323,7 +323,7 @@ module KBaseRBTnSeq {
     */
     typedef structure {
 
-        string file_type;
+        string version_num;
         handle_id expsfile;
         string handle_type;
         string shock_url;
@@ -349,7 +349,7 @@ module KBaseRBTnSeq {
         fitness values and t scores. The strain fitness table will have
         a different shape from those t
 
-    file_type - KBaseRBTnSeq.RBTS_Gene_Fitness_T_Matrix, the name of the file type.
+    version_num - Version for KBaseRBTnSeq.RBTS_Gene_Fitness_T_Matrix, the name of the file type.
     fit_scores_handle - Fitnes scores file handle; allows to download file, and get info re. shock node, shock url,
     t_scores_handle - T Scores file handle; like above fit_scores_handle
     [strain_fit_handle] - Optional Strain Fitness file handle
@@ -400,7 +400,7 @@ module KBaseRBTnSeq {
 
     typedef structure {
 
-        string file_type;
+        string version_num;
         handle_id fit_scores_handle;
         handle_id t_scores_handle;
         handle_id strain_fit_handle;
@@ -434,9 +434,6 @@ module KBaseRBTnSeq {
     Below are the previously created data types
 
     */
-
-
-
 
 
 
